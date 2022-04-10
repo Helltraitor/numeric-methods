@@ -1,33 +1,4 @@
 # settings.py
-APPLY_LANGUAGE_DOCS = {
-    "ENGLISH": """
-    Applies a new language for every subscribed function which is almost all function in package.
-    This function has O(n) complexity, that is why this operation could take some time
-    Example:
-        | from numeric_methods import settings
-        |
-        |
-        | help(settings)  # English documentation
-        | if settings.set_language("ru"):
-        |     settings.apply_language()
-        |
-        | help(settings)  # Russian documentation if it has
-    """,
-    "RUSSIAN": """
-    Применяет новый язык к каждой подписанной функции, коих большинство в пакете.
-    Эта функция имеет сложность O(n), поэтому эта операция может занять некоторое время
-    Пример:
-        | from numeric_methods import settings
-        |
-        |
-        | help(settings)  # Английская документация
-        | if settings.set_language("ru"):
-        |     settings.apply_language()
-        |
-        | help(settings)  # Русская документация, если есть
-    """,
-}
-
 GET_LANGUAGE_DOCS = {
     "ENGLISH": """
     Returns the current language of package
@@ -75,7 +46,7 @@ SET_LANGUAGE_DOCS = {
         | settings.set_language("ru")
         | print(settings.get_language())  # RUSSIAN
 
-    :param name: Название поддерживаемого языка: ENGLISH или RUSSIAN (en или ru)
+    :param name: Название поддерживаемого языка: АНГЛИЙСКИЙ или РУССКИЙ (анг или рус)
     :return: True если указанный язык применен к пакету, иначе False
     """
 }

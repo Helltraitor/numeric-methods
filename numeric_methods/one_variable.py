@@ -1,15 +1,8 @@
-from numeric_methods import settings
+from numeric_methods.language.properties import TRANSLATE
+
+docs = {"ENGLISH": "TEST", "RUSSIAN": "ТЕСТ"}
 
 
-docs = { "ENGLISH" : "TEST", "RUSSIAN": "ТЕСТ"}
-
-
-@settings.apply_documentation
-@settings.set_documentation(docs)
-@settings.subscribe_documentation
+@TRANSLATE.documentation(docs)
 def fun():
     pass
-
-
-# Initial applying
-settings.apply_language()
