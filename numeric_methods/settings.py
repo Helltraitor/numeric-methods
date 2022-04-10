@@ -1,5 +1,11 @@
-from numeric_methods.language.docs import GET_LANGUAGE_DOCS, SET_LANGUAGE_DOCS
-from numeric_methods.language.properties import LANGUAGE, TRANSLATE
+from decimal import Decimal
+from fractions import Fraction
+
+from numeric_methods.language import GET_LANGUAGE_DOCS, SET_LANGUAGE_DOCS
+from numeric_methods.language import LANGUAGE, TRANSLATE
+from numeric_methods.mathematic import EPSILON
+
+NUMBER = Decimal | float | Fraction
 
 
 @TRANSLATE.documentation(GET_LANGUAGE_DOCS)
@@ -15,3 +21,15 @@ def set_language(name: str) -> bool:
         TRANSLATE.update()
         return True
     return False
+
+
+def get_epsilon(kind: NUMBER = float) -> NUMBER:
+    return EPSILON.with_context(kind(0) if callable(kind) else kind)
+
+
+def set_epsilon(value: str) -> bool:
+    return EPSILON.set(value)
+
+
+def restore_epsilon():
+    EPSILON.restore()
