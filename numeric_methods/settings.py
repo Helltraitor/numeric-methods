@@ -2,8 +2,8 @@ from decimal import Decimal
 from fractions import Fraction
 from typing import Type
 
-from numeric_methods.language import GET_LANGUAGE_DOCS, SET_LANGUAGE_DOCS, GET_EPSILON_DOCS
 from numeric_methods.language import LANGUAGE, TRANSLATE
+from numeric_methods.language.docs.settings import GET_LANGUAGE_DOCS, SET_LANGUAGE_DOCS, GET_EPSILON_DOCS
 from numeric_methods.mathematic import EPSILON
 
 NUMBER = Decimal | float | Fraction

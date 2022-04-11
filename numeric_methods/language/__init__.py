@@ -1,19 +1,13 @@
-from .docs import (
-    GET_LANGUAGE_DOCS,
-    SET_LANGUAGE_DOCS,
+import numeric_methods.language.docs as docs
 
-    GET_EPSILON_DOCS
-)
 from .variants import LANGUAGE_VARIANTS
 from .properties import LANGUAGE, TRANSLATE
 
 __all__ = [
+    LANGUAGE_VARIANTS,
+
     LANGUAGE,
     TRANSLATE,
 
-    GET_LANGUAGE_DOCS,
-    SET_LANGUAGE_DOCS,
-    GET_EPSILON_DOCS,
-
-    LANGUAGE_VARIANTS
+    docs
 ]

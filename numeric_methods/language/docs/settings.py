@@ -1,4 +1,3 @@
-# settings.py
 GET_EPSILON_DOCS = {
     "ENGLISH": """
     By using type of passed kind returns the current epsilon value in this type
@@ -22,7 +21,7 @@ GET_EPSILON_DOCS = {
         |
         |
         | print(settings.get_epsilon(Decimal)
-    
+
     :param kind: Один из базовых типов, смотри объединение типов NUMBER
     :return: Текущее значение эпсилон в указанном типе
     """
