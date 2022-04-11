@@ -2,7 +2,6 @@ class LanguageProperties:
     def __init__(self):
         self.current = "ENGLISH"
         self.variants = ("english английский", "ENGLISH"), ("russian русский", "RUSSIAN")
-        self.supported = "ENGLISH", "RUSSIAN"
 
     def get_acceptable(self, pattern: str) -> str | None:
         for variant in self.variants:
