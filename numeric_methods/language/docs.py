@@ -1,4 +1,33 @@
 # settings.py
+GET_EPSILON_DOCS = {
+    "ENGLISH": """
+    By using type of passed kind returns the current epsilon value in this type
+    Example:
+        | from decimal import Decimal
+        |
+        | from numeric_methods import settings
+        |
+        |
+        | print(settings.get_epsilon(Decimal)
+
+    :param kind: One of basic types see NUMBER type union
+    :return: Current value of epsilon in indicated kind
+    """,
+    "RUSSIAN": """
+    Используя тип передаваемого вида, возвращает текущее значение эпсилон в этом типе
+    Пример:
+        | from decimal import Decimal
+        |
+        | from numeric_methods import settings
+        |
+        |
+        | print(settings.get_epsilon(Decimal)
+    
+    :param kind: Один из базовых типов, смотри объединение типов NUMBER
+    :return: Текущее значение эпсилон в указанном типе
+    """
+}
+
 GET_LANGUAGE_DOCS = {
     "ENGLISH": """
     Returns the current language of package
