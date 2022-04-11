@@ -4,14 +4,19 @@ from math import log2
 from typing import Generator
 
 from numeric_methods.language import TRANSLATE
-from numeric_methods.mathematic import compare
+from numeric_methods.mathematic import compare, convert, widest_type
 
 
 NUMBER = Decimal | float | Fraction
 
 
 def half_method(function, a_0: NUMBER, b_0: NUMBER, epsilon: NUMBER) -> Generator[tuple[NUMBER] | NUMBER, None, None]:
-    Number = type(a_0)
+    # Type normalization
+    Number = widest_type(a_0, b_0, epsilon)
+    a_0 = convert(a_0, Number)
+    b_0 = convert(b_0, Number)
+    epsilon = convert(epsilon, Number)
+
     if not compare("<", function(a_0) * function(b_0), Number(0)):
         raise ArithmeticError(f"Value of function({a_0}) * function({a_0}) must be less then zero")
 
