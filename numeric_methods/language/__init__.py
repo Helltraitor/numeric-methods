@@ -5,7 +5,6 @@ from .docs import (
 from .variants import LANGUAGE_VARIANTS
 from .properties import LANGUAGE, TRANSLATE
 
-
 __all__ = [
     LANGUAGE,
     TRANSLATE,
