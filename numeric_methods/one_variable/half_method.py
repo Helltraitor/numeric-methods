@@ -17,7 +17,7 @@ def half_method(function, a_0: NUMBER, b_0: NUMBER, epsilon: NUMBER) -> Generato
     b_0 = convert(b_0, Number)
     epsilon = convert(epsilon, Number)
 
-    if not compare("<", function(a_0) * function(b_0), Number(0)):
+    if not compare(function(a_0) * function(b_0), "<", Number(0)):
         raise ArithmeticError(f"Value of function({a_0}) * function({a_0}) must be less then zero")
 
     a = a_0
@@ -26,19 +26,19 @@ def half_method(function, a_0: NUMBER, b_0: NUMBER, epsilon: NUMBER) -> Generato
     last_step = int(log2((b_0 - a_0) / epsilon))
     while True:
         step += 1
-        half = (a + b) / Number(2)
-        x = function(half)
+        x = (a + b) / Number(2)
+        y = function(x)
 
-        yield step, a, b, half, x
+        yield step, a, b, x, y
 
-        if compare(x, "==", Number(0)):
-            yield half
+        if compare(y, "==", Number(0)):
+            yield x
             return
-        elif compare(x, "<", Number(0)):
-            a = half
-        elif compare(x, ">", Number(0)):
-            b = half
+        elif compare(y, "<", Number(0)):
+            a = x
+        elif compare(y, ">", Number(0)):
+            b = x
 
         if step > last_step:
-            yield half
+            yield x
             return
