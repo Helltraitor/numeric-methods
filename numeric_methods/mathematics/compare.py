@@ -2,7 +2,7 @@ from decimal import Decimal
 from fractions import Fraction
 from math import isclose
 
-from numeric_methods.mathematic import EPSILON
+from numeric_methods.mathematics import EPSILON
 
 
 NUMBER = Decimal | float | Fraction

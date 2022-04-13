@@ -4,7 +4,7 @@ from math import isclose
 
 import unittest
 
-from numeric_methods.mathematic import compare, convert, widest_type
+from numeric_methods.mathematics import compare, convert, widest_type
 
 
 class TestCompare(unittest.TestCase):

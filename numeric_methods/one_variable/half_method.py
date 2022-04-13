@@ -4,7 +4,7 @@ from math import log2
 from typing import Generator
 
 from numeric_methods.language import TRANSLATE
-from numeric_methods.mathematic import compare, convert, widest_type
+from numeric_methods.mathematics import compare, convert, widest_type
 
 
 NUMBER = Decimal | float | Fraction

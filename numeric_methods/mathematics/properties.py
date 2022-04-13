@@ -8,6 +8,13 @@ class Epsilon:
         self.float = float("1e-9")
         self.fraction = Fraction("1e-9")
 
+    @staticmethod
+    def get_default(self) -> str:
+        return "1e-9"
+
+    def restore(self):
+        self.set(self.get_default())
+
     def set(self, epsilon: str) -> bool:
         try:
             _decimal = Decimal(epsilon)
@@ -20,9 +27,6 @@ class Epsilon:
         self.float = _float
         self.fraction = _fraction
         return True
-
-    def restore(self):
-        self.set("1e-9")
 
     def with_context(self, number: int | float | Decimal | Fraction) -> float | Decimal | Fraction:
         if isinstance(number, Decimal):
