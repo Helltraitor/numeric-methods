@@ -4,12 +4,14 @@ from math import log2
 from typing import Generator
 
 from numeric_methods.language import TRANSLATE
+from numeric_methods.language.docs.one_variable import HALF_METHOD_DOCS
 from numeric_methods.mathematics import compare, convert, widest_type
 
 
 NUMBER = Decimal | float | Fraction
 
 
+@TRANSLATE.documentation(HALF_METHOD_DOCS)
 def half_method(function, a: NUMBER, b: NUMBER, epsilon: NUMBER) -> Generator[tuple[NUMBER] | NUMBER, None, None]:
     # Type normalization
     Number = widest_type(a, b, epsilon)
