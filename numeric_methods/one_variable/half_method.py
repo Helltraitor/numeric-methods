@@ -10,27 +10,22 @@ from numeric_methods.mathematics import compare, convert, widest_type
 NUMBER = Decimal | float | Fraction
 
 
-def half_method(function, a_0: NUMBER, b_0: NUMBER, epsilon: NUMBER) -> Generator[tuple[NUMBER] | NUMBER, None, None]:
+def half_method(function, a: NUMBER, b: NUMBER, epsilon: NUMBER) -> Generator[tuple[NUMBER] | NUMBER, None, None]:
     # Type normalization
-    Number = widest_type(a_0, b_0, epsilon)
-    a_0 = convert(a_0, Number)
-    b_0 = convert(b_0, Number)
+    Number = widest_type(a, b, epsilon)
+    a = convert(a, Number)
+    b = convert(b, Number)
     epsilon = convert(epsilon, Number)
 
-    if not compare(function(a_0) * function(b_0), "<", Number(0)):
-        raise ArithmeticError(f"Value of function({a_0}) * function({a_0}) must be less then zero")
+    if not compare(function(a) * function(b), "<", Number(0)):
+        raise ArithmeticError(f"Value of function({a}) * function({b}) must be less then zero")
 
-    a = a_0
-    b = b_0
-    step = 0
-    last_step = int(log2((b_0 - a_0) / epsilon))
-    while True:
-        step += 1
+    x = 0
+    for step in range(1, int(log2((b - a) / epsilon)) - 1):
         x = (a + b) / Number(2)
         y = function(x)
 
         yield step, a, b, x, y
-
         if compare(y, "==", Number(0)):
             yield x
             return
@@ -38,7 +33,4 @@ def half_method(function, a_0: NUMBER, b_0: NUMBER, epsilon: NUMBER) -> Generato
             a = x
         elif compare(y, ">", Number(0)):
             b = x
-
-        if step > last_step:
-            yield x
-            return
+    yield x
