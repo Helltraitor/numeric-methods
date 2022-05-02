@@ -29,7 +29,7 @@ class TranslateProperties:
         for subscriber in self.documentation_subscribers:
             subscriber.__doc__ = subscriber.__all_docs__.get(
                 LANGUAGE.current,
-                f"No documentation found for {LANGUAGE.current} language"
+                f"No documentation found for {LANGUAGE.current} language\n" + subscriber.__all_docs__["ENGLISH"]
             )
 
 
