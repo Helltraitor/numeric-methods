@@ -23,7 +23,7 @@ def half_method(function, a: NUMBER, b: NUMBER, epsilon: NUMBER) -> Generator[tu
         raise ArithmeticError(f"Value of function({a}) * function({b}) must be less then zero")
 
     x = 0
-    for step in range(1, int(log2((b - a) / epsilon)) - 1):
+    for step in range(1, int(log2((b - a) / epsilon)) + 1):
         x = (a + b) / Number(2)
         y = function(x)
 
@@ -31,8 +31,10 @@ def half_method(function, a: NUMBER, b: NUMBER, epsilon: NUMBER) -> Generator[tu
         if compare(y, "==", Number(0)):
             yield x
             return
-        elif compare(y, "<", Number(0)):
-            a = x
-        elif compare(y, ">", Number(0)):
+        elif compare(function(a) * y, "<", Number(0)):
             b = x
+        elif compare(y * function(b), "<", Number(0)):
+            a = x
+        else:
+            raise ArithmeticError(f"Unable to find ends with different signs: {function(a)}, {y}, {function(b)}")
     yield x
