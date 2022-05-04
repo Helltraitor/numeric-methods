@@ -8,7 +8,7 @@ long_description = (here / "README.md").read_text(encoding="utf-8")
 
 setup(
     name="numeric-methods",
-    version="1.0.0",
+    version="1.0.1",
     description="Numeric methods is a package of tools for analyze functions via numeric methods",
     long_description=long_description,
     long_description_content_type="text/markdown",
