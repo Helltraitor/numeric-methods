@@ -1,16 +1,22 @@
 HALF_METHOD_DOCS = {
     "ENGLISH": """
     This method is implementing the half division method of root searching.
-    
+
     Algorithm:
-        x = (a + b) / 2
-        if function(x) < 0 then
-            a = x
-        else if function(x) == 0 then
-            yield x
-        else
-            b = x
-        repeat until x_(i - 1)  -  x_(i) >= epsilon
+        repeat while x_(i - 1)  -  x_(i) >= epsilon
+            x = (a + b) / 2
+            # -- [a] -- x -- [b] -->
+            if function(a) * function(x) < 0 then
+                # -- [a] -- [x] -- b -->
+                a = a and b = x
+            else if function(x) * function(b) < 0 then
+                a = x and b = b
+                # -- a -- [x] -- [b] -->
+            else if function(x) == 0 then
+                return x
+                STOP
+            else
+                ERROR
 
     Conditions of using:
         [Automatic] Must be truth or ArithmeticError will raise: function(a_0) * function(b_0) < 0
@@ -34,14 +40,20 @@ HALF_METHOD_DOCS = {
     Данный метод реализует нахождение корня методом половинного деления. 
     
     Алгоритм:
-        x = (a + b) / 2
-        if function(x) < 0 then
-            a = x
-        else if function(x) == 0 then
-            yield x
-        else
-            b = x
-        repeat until x_(i - 1)  -  x_(i) >= epsilon
+        repeat while x_(i - 1)  -  x_(i) >= epsilon
+            x = (a + b) / 2
+            # -- [a] -- x -- [b] -->
+            if function(a) * function(x) < 0 then
+                # -- [a] -- [x] -- b -->
+                a = a and b = x
+            else if function(x) * function(b) < 0 then
+                a = x and b = b
+                # -- a -- [x] -- [b] -->
+            else if function(x) == 0 then
+                return x
+                STOP
+            else
+                ERROR
 
     Условия использования:
         [Автоматически] Должно быть истинной или будет вызвана ArithmeticError: function(a_0) * function(b_0) < 0
