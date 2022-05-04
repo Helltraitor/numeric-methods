@@ -24,9 +24,9 @@ setup(
         "Programming Language :: Python :: 3 :: Only",
     ],
     keywords="mathematics",
-    # package_dir={"": "numeric_methods"},
     packages=find_packages(),
     python_requires=">=3.10, <4",
+    license="MIT",
     project_urls={
         "Bug Reports": "https://github.com/Helltraitor/numeric-methods/issues",
         "Source": "https://github.com/Helltraitor/numeric-methods",
