@@ -1,10 +1,12 @@
 HALF_METHOD_DOCS = {
     "ENGLISH": """
-    This method is implementing the half division method of root searching.
+    This method is implementing the half division's method of root searching.
 
     Algorithm:
         repeat while x_(i - 1)  -  x_(i) >= epsilon
             x = (a + b) / 2
+            y = function(x)
+            return step, a, b, x, y
             # -- [a] -- x -- [b] -->
             if function(a) * function(x) < 0 then
                 # -- [a] -- [x] -- b -->
@@ -42,6 +44,8 @@ HALF_METHOD_DOCS = {
     Алгоритм:
         repeat while x_(i - 1)  -  x_(i) >= epsilon
             x = (a + b) / 2
+            y = function(x)
+            return step, a, b, x, y
             # -- [a] -- x -- [b] -->
             if function(a) * function(x) < 0 then
                 # -- [a] -- [x] -- b -->
@@ -67,7 +71,7 @@ HALF_METHOD_DOCS = {
         | for line in half_method(lambda x: x ** 5 - 2, 1, 2, 0.001):
         |     print(line)
 
-    :param function: Lambda or defined function which must support type of number and be continuity
+    :param function: Лямбда-функция или заранее определенная функция, которая должна поддерживать данный тип числа и быть непрерывной
     :param a: Начало отрезка, в котором находится корень
     :param b: Конец отрезка, в котором находится корень
     :param epsilon: Требуемая точность корня уравнения `function(x) = 0`
