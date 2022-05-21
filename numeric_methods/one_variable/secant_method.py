@@ -12,9 +12,6 @@ NUMBER = Decimal | float | Fraction
 
 @TRANSLATE.documentation(SECANT_METHOD_DOCS)
 def secant_method(function, x_prev: NUMBER, x: NUMBER, epsilon: NUMBER) -> Generator[tuple[NUMBER] | NUMBER, None, None]:
-    """
-
-    """
     # Type normalization
     Number = widest_type(x_prev, x, epsilon)
     x_prev = convert(x_prev, Number)
