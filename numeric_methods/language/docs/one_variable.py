@@ -1,3 +1,66 @@
+FALSE_METHOD_DOCS = {
+    "ENGLISH": """
+    This method is implementing the false position method of root searching.
+
+    Algorithm:
+        x_(i + 1) = x_(i) - (end - x_(i)) * function(x_(i)) / (function(end) - function(x_(i)))
+        return step, x_(i + 1)
+        while not |x_(i + 1) - x_(i)| < epsilon:
+            x_(i) = x_(i + 1)
+            x_(i + 1) = x_(i) - (end - x_(i)) * function(x_(i)) / (function(end) - function(x_(i)))
+            return step, x_(i + 1)
+        return x_(i + 1)
+        STOP
+
+    Condition of using:
+        [Automatic] Must be truth or ArithmeticError will raise: function(a) * function''(a) => 0 or function(b) * function''(b) => 0 
+
+    Example:
+        | from numeric_methods.one_variable import false_method
+        |
+        |
+        | for line in false_method(lambda x: x**3 + 2*x - 11, lambda x: 6*x, 1, 2, 0.001):
+        |     print(line)
+    
+    :param function: Lambda or defined function which must support type of number and be continuity
+    :param double_differential: Double differential of function that must be continuity    
+    :param a: Begin of the slice where root is
+    :param b: End of the slice where root is
+    :param epsilon: Required precision of the `function(x) = 0` root
+    :return: Root of the `function(x) = 0` with indicated precision
+    """,
+    "RUSSIAN": """
+    Данный метод реализует нахождение корня методом ложного положения.
+    
+    Алгоритм:
+        x_(i + 1) = x_(i) - (end - x_(i)) * function(x_(i)) / (function(end) - function(x_(i)))
+        return step, x_(i + 1)
+        while not |x_(i + 1) - x_(i)| < epsilon:
+            x_(i) = x_(i + 1)
+            x_(i + 1) = x_(i) - (end - x_(i)) * function(x_(i)) / (function(end) - function(x_(i)))
+            return step, x_(i + 1)
+        return x_(i + 1)
+        STOP
+    
+    Условия использования:
+        [Автоматически] Должно быть истинной или будет вызвана ArithmeticError: function(a) * function''(a) => 0 или function(b) * function''(b) => 0
+
+    Пример:
+        | from numeric_methods.one_variable import false_method
+        |
+        |
+        | for line in false_method(lambda x: x**3 + 2*x - 11, lambda x: 6*x, 1, 2, 0.001):
+        |     print(line)
+
+    :param function: Лямбда-функция или заранее определенная функция, которая должна поддерживать данный тип числа и быть непрерывной
+    :param double_differential: Двойной дифференциал функции, который должен быть непрерывным
+    :param a: Начало отрезка, в котором находится корень
+    :param b: Конец отрезка, в котором находится корень
+    :param epsilon: Требуемая точность корня уравнения `function(x) = 0`
+    :return: Корень уравнения `function(x) = 0` с указанной точностью
+    """
+}
+
 HALF_METHOD_DOCS = {
     "ENGLISH": """
     This method is implementing the half division's method of root searching.
@@ -39,7 +102,7 @@ HALF_METHOD_DOCS = {
     :return: Root of the `function(x) = 0` with indicated precision
     """,
     "RUSSIAN": """
-    Данный метод реализует нахождение корня методом половинного деления. 
+    Данный метод реализует нахождение корня методом половинного деления.
     
     Алгоритм:
         repeat while x_(i - 1)  -  x_(i) >= epsilon
