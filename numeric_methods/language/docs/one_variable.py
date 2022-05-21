@@ -146,6 +146,67 @@ ITER_METHOD_DOCS = {
     """,
 }
 
+SECANT_METHOD_DOCS = {
+    "ENGLISH": """
+    This method is implementing the secant method of root searching.
+
+    Algorithm:
+        x_(i + 1) = x_(i) - (x_(i) - x_(i - 1)) * function(x_(i)) / (function(x_(i)) - function(x_(i - 1)))
+        return step, next_x
+        while not |x_(i + 1) - x_(i)| < epsilon:
+            x_(i - 1) = x_(i)
+            x_(i) = x_(i + 1)
+            x_(i + 1) = x_(i) - (x_(i) - x_(i - 1)) * function(x_(i)) / (function(x_(i)) - function(x_(i - 1)))
+            return step, x_(i + 1)
+        return x_(i + 1)
+        STOP
+
+    Example:
+        | from math exp
+        |
+        | from numeric_methods.one_variable import secant_method
+        |
+        |
+        | for line in secant_method(lambda x: 4*(1 - x**2) - exp(x), 1, 0.5, 0.001):
+        |     print(line)
+
+    :param function: Lambda or defined function which must support type of number and be continuity
+    :param x_prev: Previous value of x (x_0)
+    :param x: Start value of x (x_1)
+    :param epsilon: Required precision of the `function(x) = x` root
+    :return: Root of the `function(x) = 0` with indicated precision
+    """,
+    "RUSSIAN": """
+    Данный метод реализует нахождение корня методом секущих.
+
+    Алгоритм:
+        x_(i + 1) = x_(i) - (x_(i) - x_(i - 1)) * function(x_(i)) / (function(x_(i)) - function(x_(i - 1)))
+        return step, next_x
+        while not |x_(i + 1) - x_(i)| < epsilon:
+            x_(i - 1) = x_(i)
+            x_(i) = x_(i + 1)
+            x_(i + 1) = x_(i) - (x_(i) - x_(i - 1)) * function(x_(i)) / (function(x_(i)) - function(x_(i - 1)))
+            return step, x_(i + 1)
+        return x_(i + 1)
+        STOP
+
+    Пример:
+        | from math exp
+        |
+        | from numeric_methods.one_variable import secant_method
+        |
+        |
+        | for line in secant_method(lambda x: 4*(1 - x**2) - exp(x), 1, 0.5, 0.001):
+        |     print(line)
+
+    :param function: Лямбда-функция или заранее определенная функция, которая должна поддерживать данный тип числа и быть непрерывной
+    :param x_prev: Предыдущее значение x (x_0)
+    :param x: Начальное значение x (x_1)
+    :param epsilon: Требуемая точность корня уравнения `function(x) = x`
+    :return: Корень уравнения `function(x) = x` с указанной точностью
+    """
+}
+
 TANGENT_METHOD_DOCS = {
     "ENGLISH": """
     This method is implementing the tangent lines' method (Newton's method) of root searching.
