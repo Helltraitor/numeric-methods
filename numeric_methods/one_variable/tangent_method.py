@@ -17,9 +17,9 @@ def tangent_method(function, differential, a: NUMBER, b: NUMBER, epsilon: NUMBER
     if x is not None:
         Number = widest_type(Number, x)
     elif double_differential is not None:
-        if compare(function(a) * function(a), ">=", Number(0)):
+        if compare(function(a) * double_differential(a), ">=", Number(0)):
             x = a
-        elif compare(function(b) * function(b), ">=", Number(0)):
+        elif compare(function(b) * double_differential(b), ">=", Number(0)):
             x = b
         else:
             raise ArithmeticError(f"Unable to choose x value from {a} and {b}: try to set another a and b or choose x manually")
